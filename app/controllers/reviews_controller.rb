@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  # def index 
-  #   @reviews = Review.all 
-  #   render template: "reviews/index"
-  # end
+  def index 
+    @reviews = Review.all 
+    render template: "reviews/index"
+  end
 
   def new 
     @review = Review.new 

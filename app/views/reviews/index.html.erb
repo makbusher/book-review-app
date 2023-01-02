@@ -1,0 +1,7 @@
+<h1>My Reviews</h1>
+<% @reviews.each do |review| %>
+  <h2><%= review.rating %></h2>
+  <p>Description: <%= review.description %></p>
+<% end %>
+
+<a href="reviews/new">Leave a Review</a>
