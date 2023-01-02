@@ -1,8 +1,8 @@
 <h1>Bookshelf</h1>
 <% @books.each do |book| %>
   <h2><%= book.title %></h2>
+  <p><img src="<%= book.image_url %>" width=20%, height= 20%></p> 
   <p>Author: <%= book.author %></p>
-  <p>Cover:<%= book.image_url %></p> 
   <%= link_to "More Info", book %>
 <% end %>
 
