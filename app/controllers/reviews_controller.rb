@@ -4,6 +4,11 @@ class ReviewsController < ApplicationController
     render template: "reviews/index"
   end
 
+  def show
+    @review = Review.find_by(id: params[:id])
+    render template: "reviews/show"
+  end
+
   def new 
     @review = Review.new 
     render template: "reviews/new"

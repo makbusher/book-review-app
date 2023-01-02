@@ -2,6 +2,7 @@
 <% @reviews.each do |review| %>
   <h2><%= review.rating %></h2>
   <p>Description: <%= review.description %></p>
+  <a href="/reviews/<%= review.id %>">More Info</a>
 <% end %>
 
 <a href="reviews/new">Leave a Review</a>
