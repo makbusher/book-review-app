@@ -8,4 +8,22 @@ class BooksController < ApplicationController
     @book = Book.find_by(id: params[:id])
     render template: "books/show"
   end
+
+  def new 
+    @book = Book.new
+    render template: "books/new"
+  end
+
+  def create
+    @book = Book.new(
+      title: params[:book][:title],
+      author: params[:book][:author],
+      summary: params[:book][:summary],
+      image_url: params[:book][:image_url],
+      genre: params[:book][:genre],
+      user_id: params[:book][:user_id]
+    )
+    @book.save
+    redirect_to "/books"
+  end
 end
