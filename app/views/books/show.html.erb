@@ -3,6 +3,6 @@
 <p><img src="<%= @book.image_url %>" width=20%, height= 20%></p> 
 <p>Summary: <%= @book.summary %></p>
 <p>Genre: <%= @book.genre %></p>
-<a href="/books/:id/reviews/new">Leave a Review</a>
+<a href="/books/<%= @book.id %>/reviews/new">Leave a Review</a>
 <a href="/books">Back to Bookshelf</a>
 

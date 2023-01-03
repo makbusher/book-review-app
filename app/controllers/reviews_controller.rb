@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user
+  before_action :find_book, only: [:create]
   def index 
     @reviews = Review.all 
     render template: "reviews/index"
@@ -16,20 +17,23 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.book_id = @book.id
-    @review.user_id = @current_user.id
-    
+    @review = Review.new(
+    rating: params[:review][:rating],
+    description: params[:review][:description],
+    book_id: @book.id,
+    user_id: @current_user.id
+    )
+
     @review.save
     redirect_to "/"
   end
 
   private
     def review_params
-      params.permit(:rating, :description)
+      params.permit(:rating, :description, :book_id)
     end
 
     def find_book
-      @book = Book.find_by(params[:id])
+      @book = Book.find_by(id: params[:book_id])
     end
 end
