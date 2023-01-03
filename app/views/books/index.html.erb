@@ -1,5 +1,6 @@
 <h1 align="center">Bookshelf</h1>
-<a href="<%= url_for(controller: 'books', action: 'new')%>">New Book</a>
+
+<a class="btn btn-dark" href="<%= url_for(controller: 'books', action: 'new')%>" role="button">Add a Book</a>
 <div class="row"> 
 <% @books.each do |book| %>
 <div class="card mb-3" style="max-width: 400px;">
