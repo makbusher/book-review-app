@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"
 
+  get "/books/reviews/new" => "reviews#new"
+  post "/reviews" => "reviews#create"
   resources :books
 
   resources :reviews
