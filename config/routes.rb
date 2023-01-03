@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"
 
-  get "/books/reviews/new" => "reviews#new"
-  post "/reviews" => "reviews#create"
-  resources :books
+  # get "/books/:book_id/reviews/new" => "reviews#new"
+  # post "/reviews" => "reviews#create"
+  resources :books do
+    resources :reviews
+  end
 
   resources :reviews
 end

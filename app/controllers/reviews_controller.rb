@@ -16,13 +16,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(
-      rating: params[:review][:rating],
-      description: params[:review][:description],
-      user_id: @current_user.id,
-      book_id: params[:review][:book_id]
-    )
+    @review = Review.new(review_params)
+    @review.book_id = @book.id
+    @review.user_id = @current_user.id
+    
     @review.save
     redirect_to "/"
   end
+
+  private
+    def review_params
+      params.permit(:rating, :description)
+    end
+
+    def find_book
+      @book = Book.find_by(params[:id])
+    end
 end
