@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(
       rating: params[:review][:rating],
       description: params[:review][:description],
-      user_id: params[:review][:user_id],
+      user_id: @current_user.id,
       book_id: params[:review][:book_id]
     )
     @review.save

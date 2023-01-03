@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @books = Book.all 
     render template: "books/index"
@@ -21,7 +23,7 @@ class BooksController < ApplicationController
       summary: params[:book][:summary],
       image_url: params[:book][:image_url],
       genre: params[:book][:genre],
-      user_id: params[:book][:user_id]
+      user_id: @current_user.id
     )
     @book.save
     redirect_to "/books"
