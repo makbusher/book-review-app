@@ -25,9 +25,13 @@
           </li>
           <% if current_user %>
             <li class="nav-item active">
+              <a href= "<%= url_for(controller: 'books', action: 'new' ) %>" class="nav-link active"> Add Book </a>
+            </li>
+            <li class="nav-item active">
               <a href= "<%= url_for(controller: 'sessions', action: 'destroy' ) %>" class="nav-link active"> Logout </a>
             </li>
           <% end %>
+
         </ul>
       </div>
 
