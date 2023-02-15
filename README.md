@@ -23,3 +23,6 @@ rails s
 ```
 
 5) View frontend at http://localhost:8000
+
+# Usage 
+This is still in progress, but all current features work. There is no data saved to the database but they can all be created in the rails console or Rails backend using http requests (just check the schema)
